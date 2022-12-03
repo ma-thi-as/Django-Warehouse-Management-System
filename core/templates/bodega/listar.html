@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% load cantidad_tags %}
+{% load rut_tags %}
+{% block body %}
+{% if object_list %}
+<div class="container-fluid  p-2" style="margin-top:3rem">
+    <div class="card ">
+        <div class="card-body ">
+            <div class="d-flex justify-content-around">
+                <h5 class="card-title"><strong>Registro de bodega</strong></h5>
+                <div>
+                    <a class="btn btn-success" href="{% url 'bodega:crear_inventario' %}">Ingresar nuevo registro<i
+                            class="fa-solid fa-plus-minus p-2"></i></a>
+                    <a class="btn btn-danger" href="{% url 'bodega:reporte' %}"> Reporte en PDF <i class="fa-solid fa-file-pdf p-2" style="color: white;"></i></a>
+
+                </div>
+            </div>
+            <table class="table table-responsive text-center ">
+                <thead>
+                    <tr>
+                        <th>ID usuario responsable</th>
+                        <th>Ultima modificacion</th>
+                        <th>Operacion</th>
+                        <th>Cantidad</th>
+                        <th>Producto</th>
+                        <th>Opcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in object_list.all %}
+                    <tr>
+                        <td> {{ usuario.history_user_id|rut_format}} </td>
+                        <td> {{ usuario.history_date}} </td>
+                        <td> {{ usuario.opcion|title }} </td>
+                        <td> {{ usuario.cantidad}} </td>
+                        <td> {{ usuario.producto.nombre}} </td>
+                        <td> <a class="btn btn-primary"
+                                href="{% url 'bodega:actualizar_inventario' usuario.id %}">Actualizar</a></td>
+
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% block paginacion %}
+{% include 'components/paginacion.html' %}
+{% endblock paginacion %}
+{% else %}
+<h1><strong><b>No existen Productos en inventario registrados</b></strong></h1>
+
+<a class="btn btn-success" href="{% url 'bodega:crear_inventario' %}">Ingresar nuevo registro<i
+        class="fa-solid fa-plus-minus p-2"></i></a>
+
+{% endif %}
+{% endblock body %}

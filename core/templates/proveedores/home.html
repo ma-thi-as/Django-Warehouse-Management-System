@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+            <img src="{% static 'img/proveedores/home.webp' %}"
+                class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            
+            <ul class="list-group text-center h4">
+                <li class="list-group-item "><h3 ><i>Panel de gestión de proveedores <i class="fa-solid fa-truck text-success"></i></i></h3></li>
+                <li class="list-group-item "><a href="{% url 'proveedor:crear_proveedores' %}"><i>Registrar nuevo proveedor</i></a></li>
+                <li class="list-group-item "><a href="{% url 'proveedor:listar_proveedores' %}"><i>Listar proveedores registrados</i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock body%}

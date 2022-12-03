@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load rut_tags %}
+{% block body %}
+
+
+
+{% if object_list %}
+<div class="container-fluid  p-2" style="margin-top:3rem">
+
+    <div class="card ">
+        <div class="card-body ">
+            <h5 class="card-title text-center"><strong>Listado usuarios</strong></h5>
+
+            <table class="table table-responsive text-center ">
+                <thead>
+                    <tr>
+                        <th>RUT</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cargo</th>
+                        <th>Opciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in object_list %}
+                    <tr>
+                        <td> {{ usuario.rut|rut_format}} </td>
+                        <td> {{ usuario.nombre|title }} </td>
+                        <td> {{ usuario.apellido|title }} </td>
+                        {% if usuario.cargo == 'ADMIN' %}
+                        <td><strong>{{usuario.cargo|title}}</strong></td>
+                        {% else %}
+                        <td><strong>{{usuario.cargo|title}}</strong></td>
+                        {% endif %}
+                        <td><a class="btn btn-primary" href="{% url 'usuario:actualizar_usuario' usuario.pk %}">Actualizar</a></td>
+
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% block paginacion %}
+{% include 'components/paginacion.html' %}
+{% endblock paginacion %}
+{% else %}
+<h1><strong><b>No existen usuarios registrados</b></strong></h1>
+{% endif %}
+
+{% endblock body %}

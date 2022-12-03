@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% load rut_tags %}
+
+{% block body %}
+
+
+
+{% if object_list %}
+<div class="container-fluid  p-2" style="margin-top:3rem">
+
+    <div class="card ">
+        <div class="card-body ">
+            <h5 class="card-title text-center"><strong>Listado usuarios</strong></h5>
+
+            <table class="table table-responsive text-center ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Rut</th>
+                        <th>Email</th>
+                        <th>Opciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proveedor in object_list %}
+                    <tr>
+                        <td> {{ proveedor.nombre|title }} </td>
+                        <td> {{ proveedor.apellido|title }} </td>
+                        <td> {{ proveedor.rut|rut_format }} </td>
+                        <td> {{ proveedor.email }} </td>
+                        <td>
+                            
+                            <a class="btn btn-danger" href="{% url 'proveedor:eliminar_proveedores' proveedor.rut %}">Eliminar</a>
+                            <a class="btn btn-primary" href="{% url 'proveedor:actualizar_proveedores' proveedor.rut %}">Actualizar</a>
+
+                        </td>
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    
+{% block paginacion %}
+{% include 'components/paginacion.html' %}
+{% endblock paginacion %}
+{% else %}
+<h1><strong><b>No existen proveedores registrados</b></strong></h1>
+{% endif %}
+
+{% endblock body %}

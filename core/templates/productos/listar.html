@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% load humanize %}
+{% block body %}
+
+
+
+{% if object_list %}
+<div class="container-fluid  p-2" style="margin-top:3rem">
+
+    <div class="card ">
+        <div class="card-body ">
+            <h5 class="card-title text-center"><strong>Listado productos</strong></h5>
+
+            <table class="table table-responsive text-center ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Categoria</th>
+                        <th>Detalle</th>
+                        <th>Opciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in object_list %}
+                    <tr>
+                        <td> {{ producto.nombre|title }} </td>
+                        <td> ${{ producto.precio|intcomma }} </td>
+                        <td> {{ producto.categoria|title }} </td>
+                        <td> {{ producto.detalle|title }} </td>
+                        <td>
+                            {% if producto.estado == False %}
+                            <a class="btn btn-warning disabled" href="{% url 'productos:eliminar_productos' producto.id %}">Eliminado</a>
+                            {% else %}
+                            <a class="btn btn-danger" href="{% url 'productos:eliminar_productos' producto.id %}">Eliminar</a>
+                            {% endif %}
+                            <a class="btn btn-primary" href="{% url 'productos:actualizar_productos' producto.id %}">Actualizar</a>
+
+                        </td>
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% block paginacion %}
+{% include 'components/paginacion.html' %}
+{% endblock paginacion %}
+{% else %}
+<h1><strong><b>No existen producto registrados</b></strong></h1>
+{% endif %}
+
+{% endblock body %}

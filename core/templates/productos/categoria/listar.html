@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load humanize %}
+{% block body %}
+
+
+
+{% if object_list %}
+<div class="container-fluid  p-2" style="margin-top:3rem">
+
+    <div class="card ">
+        <div class="card-body ">
+            <h5 class="card-title text-center"><strong>Listado de categorias</strong></h5>
+
+            <table class="table table-responsive text-center ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in object_list %}
+                    <tr>
+                        <td> {{ categoria.nombre }} </td>
+                        <td>
+                            {% if categoria.estado == False %}
+                            <a class="btn btn-warning disabled" href="{% url 'productos:eliminar_categoria' categoria.id %}">Eliminado</a>
+                            {% else %}
+                            <a class="btn btn-danger" href="{% url 'productos:eliminar_categoria' categoria.id %}">Eliminar</a>
+                            {% endif %}
+                            <a class="btn btn-primary" href="{% url 'productos:actualizar_categoria' categoria.id %}">Actualizar</a>
+                        </td>
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% block paginacion %}
+{% include 'components/paginacion.html' %}
+{% endblock paginacion %}
+{% else %}
+<h1><strong><b>No existen categorias registradas</b></strong></h1>
+{% endif %}
+
+{% endblock body %}

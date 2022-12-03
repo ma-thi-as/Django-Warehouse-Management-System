@@ -1,0 +1,32 @@
+{% load cantidad_tags %}
+{% load rut_tags %}
+
+
+<body style="text-align: center;">
+    <h2>Reporte Inventario</h2>
+    <h2>Reporte de productos en inventario (Actuales):</h2>
+    <table border="1" style="text-align: center;">
+        <thead>
+            <tr style="padding: 10%;">
+                <td>Usuario Responable</td>
+                <td>Fecha de modificación</td>
+                <td>Producto</td>
+                <th>Opcion</th>
+                <th>Cantidad en inventario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in history %}
+            <tr style="padding: 10%;">
+                <td> {{ item.history_user_id|rut_format}} </td>
+                <td> {{ item.history_date}} </td>
+                <td>{{ item.producto|upper }}</td>
+                <td>{{ item.opcion }}</td>
+                <td>{{ item.cantidad }}</td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</body>

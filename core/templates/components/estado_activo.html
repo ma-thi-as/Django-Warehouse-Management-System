@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block header %}
+{% endblock header %}
+    
+{% block body %}
+    <div class="d-flex justify-content-center  bg-dark text-light" style="width: 100%; height: 100vh">
+        <div class="align-self-center text-center">
+            <p class="alert alert-danger"><strong>El registro no se puede eliminar porque esta en uso.</strong></p>
+            <a class="btn btn-primary" href="{% url 'index' %}">Volver</a>
+        </div>
+    </div>
+{% endblock body %}
+    
+
+{% block footer %}
+{% endblock footer %}
