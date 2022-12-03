@@ -1,4 +1,4 @@
-Sistema de bodega
+Sistema de bodega \n
 Gestion de empleados
 Gestion de inventario
 Gestion del area de bodega
