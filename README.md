@@ -1,4 +1,4 @@
-Sistema de bodega 
+Sistema de bodega basado en Django con generacion de PDF
 
 
 Gestion de empleados, Gestion de inventario, Gestion proveedores, Gestion del area de bodega
