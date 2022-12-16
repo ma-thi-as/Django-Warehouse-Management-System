@@ -1,17 +1,8 @@
 Sistema de bodega 
 
 
-Gestion de empleados:En base a los cargos de los usuarios registrados
+Gestion de empleados, Gestion de inventario, Gestion proveedores, Gestion del area de bodega
 
-
-
-Gestion de inventario
-
-
-Gestion de proveedores
-
-
-Gestion del area de bodega
 
 
 
