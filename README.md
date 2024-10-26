@@ -43,7 +43,7 @@ virtualenv (recomendado)
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/your-username/django-warehouse.git
+git https://github.com/ma-thi-as/Django-Warehouse-Management-System
 cd django-warehouse-management-system
 
 ```
