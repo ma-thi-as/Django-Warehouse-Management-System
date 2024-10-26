@@ -1,7 +1,84 @@
-Sistema de bodega basado en Django con generacion de PDF
+# Django Warehouse Management System
 
+Un sistema completo de gestión de bodega desarrollado con Django, que incluye generación de reportes PDF, control de inventario, y gestión de personal.
 
-Gestion de empleados, Gestion de inventario, Gestion proveedores, Gestion del area de bodega
+## 🚀 Características Principales
+
+- **Gestión de Empleados**
+  - Control de personal y roles
+  - Registro de horarios y turnos
+  - Asignación de tareas y responsabilidades
+
+- **Gestión de Inventario**
+  - Control de stock en tiempo real
+  - Registro de entradas y salidas
+  - Alertas de stock bajo
+  - Histórico de movimientos
+  - Códigos de barras/QR
+
+- **Gestión de Proveedores**
+  - Catálogo de proveedores
+  - Historial de compras
+  - Evaluación de proveedores
+  - Gestión de órdenes de compra
+
+- **Gestión del Área de Bodega**
+  - Organización de espacios
+  - Control de ubicaciones
+  - Optimización de almacenamiento
+
+- **Generación de PDF**
+  - Reportes de inventario
+
+## 📋 Requisitos Previos
+
+```
+Python 3.8+
+Django 4.0+
+PostgreSQL
+virtualenv (recomendado)
+```
+
+## 🛠️ Instalación
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/your-username/django-warehouse.git
+cd django-warehouse
+```
+
+2. Crear y activar entorno virtual:
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+```
+
+3. Instalar dependencias:
+```bash
+pip install -r requirements.txt
+```
+
+4. Configurar variables de entorno:
+```bash
+cp .env.example .env
+# Editar .env con tus configuraciones
+```
+
+5. Realizar migraciones:
+```bash
+python manage.py migrate
+```
+
+6. Crear superusuario:
+```bash
+python manage.py createsuperuser
+```
+
+7. Ejecutar servidor de desarrollo:
+```bash
+python manage.py runserver
+```
 
 
 
