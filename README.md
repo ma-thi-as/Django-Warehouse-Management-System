@@ -44,7 +44,8 @@ virtualenv (recomendado)
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/your-username/django-warehouse.git
-cd django-warehouse
+cd django-warehouse-management-system
+
 ```
 
 2. Crear y activar entorno virtual:
