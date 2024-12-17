@@ -6,26 +6,18 @@ Un sistema completo de gestión de bodega desarrollado con Django, que incluye g
 
 - **Gestión de Empleados**
   - Control de personal y roles
-  - Registro de horarios y turnos
   - Asignación de tareas y responsabilidades
 
 - **Gestión de Inventario**
   - Control de stock en tiempo real
   - Registro de entradas y salidas
-  - Alertas de stock bajo
   - Histórico de movimientos
-  - Códigos de barras/QR
 
 - **Gestión de Proveedores**
   - Catálogo de proveedores
-  - Historial de compras
-  - Evaluación de proveedores
-  - Gestión de órdenes de compra
 
 - **Gestión del Área de Bodega**
-  - Organización de espacios
-  - Control de ubicaciones
-  - Optimización de almacenamiento
+  - Control de productos.
 
 - **Generación de PDF**
   - Reportes de inventario
